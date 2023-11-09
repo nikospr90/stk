@@ -1,18 +1,39 @@
-.back {
+body {
   background-image: url("/media/news_backdrop.jpg");
-  margin: 10%;
-  padding: 5%;
-  font-size: xx-large;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-backdrop-filter: blur(6px);
+          backdrop-filter: blur(6px);
+  margin: 0px;
+  padding: 1%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+body header {
+  font-size: xxx-large;
   font-weight: bolder;
+  text-align: center;
+  border: 1px solid black;
 }
-.back header {
+body h1 {
+  font-size: xx-large;
   font-weight: bolder;
-  font-size: xx-large;
+  text-align: center;
 }
-.back h1 {
-  font-size: xx-large;
+body main {
+  border: 2px solid black;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
 }
-.back h2 {
-  font-size: xx-large;
+body main #age {
+  width: 100px;
+}
+body footer {
+  border: 1px solid black;
 }/*# sourceMappingURL=style.css.map */
