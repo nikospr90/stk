@@ -7,22 +7,35 @@
         <meta name="viewport" content="width=device-width, intitial-scale = 1.0">
     </head>
     <body>
-        <header>Sveriges Telavisionskanaler</header>
+        <header><p>Sveriges Televisionskanaler</p></header>
         <main>
             <h1>Välkommen</h1>
-            <section>
+            <div id="buttons">
+                <button id="register" >Registrera</button>
+                <button id="search" >Sök</button>
+            </div>
+            <div id="regform" class="scale-up-top">
                 <form action="">
                     <h2>Titel</h2>
-                    <input type="text" placeholder="Titel">
+                    <input id="title" type="text" value="">
                     <h2>Beskrivning</h2>
-                    <input type="text" placeholder="Beskrivning">
+                    <input id="summary" type="text" placeholder="Beskrivning">
                     <h2>Åldernsgräns</h2>
                     <input id="age" type="number" placeholder="Åldernsgräns"> 
-                    <input type="submit" value="Spara">
+                    <input id="spara" type="submit" value="Spara">
                 </form>
-            </section>
+            </div>
+            <div id="searchbar" class="scale-up-top">
+                <form action="">
+                    <h2>Sök</h2>
+                    <input type="search" placeholder="Titel">
+                    <input type="submit" value="Sök">
+                </form>
+            </div>
         </main>
-        <footer>something</footer>
+        <footer>
+            <p>&copy; 2023 <NAME></p>
+        </footer>
         <script src="scripts/script.js"></script>
     </body>
 </html>

@@ -1,24 +1,43 @@
+// @keyframes scale-up-top{
+//     0%{transform:scale(.5);
+//     transform-origin:center top}
+//     100%{transform:scale(1);
+//     transform-origin:center top}}
+
 body { background-image: url("/media/news_backdrop.jpg");
 background-repeat: no-repeat;
 background-size: cover;
-backdrop-filter: blur(6px);
 margin: 0px;
 padding: 1%;
 display: flex;
 justify-content: center;
 flex-direction: column;
 
+
     header {font-size: xxx-large;
     font-weight: bolder;
     text-align: center;
-    border: 1px solid black;}
+    color: bisque;
+    text-shadow: 1px 1px 2px rgb(255, 0, 0), 
+    0 0 1em rgb(63, 63, 255), 0 0 0.2em blue;
+    width: 100%;}
 
     h1 {font-size: xx-large;
     font-weight: bolder;
-    text-align: center;}
+    text-align: center;
+    color: antiquewhite;
+    text-shadow: 1px 1px 2px rgb(255, 0, 0), 
+    0 0 1em rgb(63, 63, 255), 
+    0 0 0.2em blue;}
 
-    main {border: 2px solid black;
-        display: flex;
+    h2 {font-size: x-large;
+    font-weight: bolder;
+    color: antiquewhite;
+    text-shadow: 1px 1px 2px rgb(255, 0, 0), 
+    0 0 1em rgb(63, 63, 255), 
+    0 0 0.2em blue;}
+
+    main {display: flex;
         text-align: center;
         flex-direction: column;
         justify-content: center;
@@ -26,8 +45,37 @@ flex-direction: column;
         width: 100%;
         height: 100%;
 
+        form {display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    
+            input {width: 40%;
+            border-radius: 15px;}
+        }
+         
+        .scale-up-top{animation:scale-up-top 0.8s;}
+
+        #regform {background-color: rgba(0, 0, 0, 0.507);
+        border-radius: 10px;
+        width: 500px;
+        display: block; // change back
+        }
+
         #age {width: 100px;}
-    }
-    footer {border: 1px solid black;}
+
+        #searchbar {background-color: rgba(0, 0, 0, 0.507);
+        border-radius: 10px;
+        width: 500px;
+        display: none;}
+        }
+
+    footer {width: 100%;
+        text-align: center;
+        color: antiquewhite;
+        text-shadow: 1px 1px 2px rgb(255, 0, 0), 
+        0 0 1em rgb(63, 63, 255), 
+        0 0 0.2em blue;
+        }
 
 }

@@ -2,8 +2,6 @@ body {
   background-image: url("/media/news_backdrop.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  -webkit-backdrop-filter: blur(6px);
-          backdrop-filter: blur(6px);
   margin: 0px;
   padding: 1%;
   display: flex;
@@ -14,15 +12,24 @@ body header {
   font-size: xxx-large;
   font-weight: bolder;
   text-align: center;
-  border: 1px solid black;
+  color: bisque;
+  text-shadow: 1px 1px 2px rgb(255, 0, 0), 0 0 1em rgb(63, 63, 255), 0 0 0.2em blue;
+  width: 100%;
 }
 body h1 {
   font-size: xx-large;
   font-weight: bolder;
   text-align: center;
+  color: antiquewhite;
+  text-shadow: 1px 1px 2px rgb(255, 0, 0), 0 0 1em rgb(63, 63, 255), 0 0 0.2em blue;
+}
+body h2 {
+  font-size: x-large;
+  font-weight: bolder;
+  color: antiquewhite;
+  text-shadow: 1px 1px 2px rgb(255, 0, 0), 0 0 1em rgb(63, 63, 255), 0 0 0.2em blue;
 }
 body main {
-  border: 2px solid black;
   display: flex;
   text-align: center;
   flex-direction: column;
@@ -31,9 +38,37 @@ body main {
   width: 100%;
   height: 100%;
 }
+body main form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+body main form input {
+  width: 40%;
+  border-radius: 15px;
+}
+body main .scale-up-top {
+  animation: scale-up-top 0.8s;
+}
+body main #regform {
+  background-color: rgba(0, 0, 0, 0.507);
+  border-radius: 10px;
+  width: 500px;
+  display: block;
+}
 body main #age {
   width: 100px;
 }
+body main #searchbar {
+  background-color: rgba(0, 0, 0, 0.507);
+  border-radius: 10px;
+  width: 500px;
+  display: none;
+}
 body footer {
-  border: 1px solid black;
+  width: 100%;
+  text-align: center;
+  color: antiquewhite;
+  text-shadow: 1px 1px 2px rgb(255, 0, 0), 0 0 1em rgb(63, 63, 255), 0 0 0.2em blue;
 }/*# sourceMappingURL=style.css.map */
