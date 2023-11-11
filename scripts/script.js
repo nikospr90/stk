@@ -55,6 +55,8 @@ function saveData() {
     //och sparas till localstorage
     localStorage.setItem('programsArray', JSON.stringify(objArray));
     
+    alert('Data saved to local storage!'); 
+
     console.log(localStorage.getItem('programsArray'));
 }
 
@@ -149,6 +151,10 @@ sökning.addEventListener('click', findData);
 //     else { 
 //         alert('Ingen data hittad'); } 
 // } 
+
+
+
+
 // // Rensa data 
 // function clearStorage() { 
 //     localStorage.removeItem('savedData'); 
