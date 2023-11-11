@@ -25,32 +25,67 @@ function showSearchBar() {
 search.addEventListener('click', showSearchBar);
 
 // database
-let storage = [];
 
-// save data
-function saveData() {
-    let myProgram = {
 
-         title: document.getElementById('title').value,
 
-         summary: document.getElementById('summary').value,
+// let summaries = [];
+// let ages = [];
+// let num = 2;
+// let num2 = 3;
 
-         age: document.getElementById('age').value,
-    };
+
+// localStorage.setItem('number', num);
+
+// localStorage.setItem('number2', num2);
+
+const titles = [];
+
+let title = document.getElementById('title');
+
+localStorage.setItem('title', JSON.stringify(title.value));
+
+let rdy_title = JSON.parse(localStorage.getItem('title'));
+
+
+
+saveData(rdy_title);
+
+
+function saveData(e) {
     
-    let myProgram_string = JSON.stringify(myProgram);
-
-    localStorage.setItem('myProgram', myProgram_string);
-
-    let myProgram_to_obj = JSON.parse(localStorage.getItem('myProgram'));
-
-    storage.push(myProgram_to_obj);
-
-    console.log(storage);    
+    titles.push(e);
+    
+    console.log(titles);
 }
 
-const spara = document.getElementById('spara');
-spara.addEventListener('click', saveData);
+console.log(localStorage);
+
+
+
+
+
+
+
+
+
+
+
+
+
+// let title = document.getElementById('title');
+
+// localStorage.setItem('title', JSON.stringify(title.value));
+
+// let rdy_title = localStorage.getItem('title');
+
+// console.log(localStorage);
+
+
+
+
+let spara = document.getElementById('spara');
+
+//spara.addEventListener('click', saveData);
 
 
 //  /* Tre funktioner, en som sparar data, en som hämtar data och visar, en som rensar. */ 
