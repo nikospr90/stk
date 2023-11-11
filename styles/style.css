@@ -64,7 +64,7 @@ body main #searchbar {
   background-color: rgba(0, 0, 0, 0.507);
   border-radius: 10px;
   width: 500px;
-  display: none;
+  display: block;
 }
 body footer {
   width: 100%;
