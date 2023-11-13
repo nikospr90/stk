@@ -9,28 +9,53 @@
     <body>
         <header><p>Sveriges Televisionskanaler</p></header>
         <main>
+
+
             <h1>Välkommen</h1>
             <div id="buttons">
                 <button id="register" title="Registrera ett Program efter titel, beskrivning och åldernsgräns">Registrera</button>
-                <button id="search" >Sök</button>
+                <button id="search" title="Söka ett Program efter titel, beskrivning och åldernsgräns">Sök</button>
+                <button id="delete" title="Ta bort ett Program efter titel, beskrivning och åldernsgräns">Rensa</button>
             </div>
+
+
+
             <div id="regform" class="scale-up-top">
                 <form action="">
                     <h2>Titel</h2>
                     <input id="title" type="text" >
                     <h2>Beskrivning</h2>
-                    <input id="genre" type="text" placeholder="Genre">
+                    <select name="tema" id="genre">
+                        <option value="">--Välj--</option>
+                        <option value="komedi">Komedi</option>
+                        <option value="skräck">Skräck</option>
+                        <option value="action">Action</option>
+                        <option value="drama">Drama</option>
+                    </select>
                     <h2>Åldernsgräns</h2>
                     <input id="age" type="number" placeholder="Åldernsgräns"> 
                     <input id="spara" type="submit" value="Spara">
+                    <br>
                 </form>
             </div>
+
+
             <div id="searchbar" class="scale-up-top">
                     <h2>Sök</h2>
                     <input id="key" type="search" placeholder="Titel">
-                    <input id="display" type="text" readonly>
+                    <textarea id="display" type="textarea" readonly rows="12" cols="12"></textarea>
                     <button id="find">Sök</button>
+                    <button id="all">Visa allt</button>
             </div>
+
+
+            <div id="deleteBar" class="scale-up-top">
+                <h2>Rensa</h2>
+                <input id="display2" type="textarea" placeholder="Titel">
+                <button id="delete2">Rensa</button>
+            </div>
+
+
         </main>
         <footer>
             <p>&copy; 2023 <NAME></p>

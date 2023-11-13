@@ -1,3 +1,23 @@
+@keyframes scale-up-top {
+  0% {
+    transform: scale(0.5);
+    transform-origin: center top;
+  }
+  100% {
+    transform: scale(1);
+    transform-origin: center top;
+  }
+}
+@keyframes reverse-scale-up-top {
+  0% {
+    transform: scale(1);
+    transform-origin: center top;
+  }
+  100% {
+    transform: scale(0.5);
+    transform-origin: center top;
+  }
+}
 body {
   background-image: url("/media/news_backdrop.jpg");
   background-repeat: no-repeat;
@@ -51,11 +71,14 @@ body main form input {
 body main .scale-up-top {
   animation: scale-up-top 0.8s;
 }
+body main .reverse-scale-up-top {
+  animation: reverse-scale-up-top 0.8s;
+}
 body main #regform {
   background-color: rgba(0, 0, 0, 0.507);
   border-radius: 10px;
   width: 500px;
-  display: block;
+  display: none;
 }
 body main #age {
   width: 100px;
@@ -64,7 +87,13 @@ body main #searchbar {
   background-color: rgba(0, 0, 0, 0.507);
   border-radius: 10px;
   width: 500px;
-  display: block;
+  display: none;
+}
+body #deleteBar {
+  background-color: rgba(0, 0, 0, 0.507);
+  border-radius: 10px;
+  width: 500px;
+  display: none;
 }
 body footer {
   width: 100%;
