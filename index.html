@@ -19,46 +19,51 @@
             </div>
 
 
-
             <div id="regform" class="scale-up-top">
                 <form action="">
                     <h2>Titel</h2>
                     <input id="title" type="text" >
                     <h2>Beskrivning</h2>
-                    <select name="tema" id="genre">
+                    <select name="tema" id="genre" class="submit" title="Här väljer du vilken tema har programet">
                         <option value="">--Välj--</option>
                         <option value="komedi">Komedi</option>
                         <option value="skräck">Skräck</option>
                         <option value="action">Action</option>
                         <option value="drama">Drama</option>
+                        <option value="romantik">Romantik</option>
+                        <option value="thriller">Thriller</option>
+                        <option value="dokumentar">Dokumentar</option>
                     </select>
                     <h2>Åldernsgräns</h2>
-                    <input id="age" type="number" placeholder="Åldernsgräns"> 
-                    <input id="spara" type="submit" value="Spara">
+                    <input id="age" class="submit" type="number" placeholder="Åldernsgräns"> 
+                    <input id="spara" class="submit" type="submit" value="Spara">
                     <br>
                 </form>
             </div>
 
 
             <div id="searchbar" class="scale-up-top">
-                    <h2>Sök</h2>
-                    <input id="key" type="search" placeholder="Titel">
-                    <textarea id="display" type="textarea" readonly rows="12" cols="12"></textarea>
-                    <button id="find">Sök</button>
-                    <button id="all">Visa allt</button>
+                <h2>Sök</h2>
+                <input id="key" type="text" placeholder="Titel">
+                <textarea id="searchDisplay" type="textarea" readonly cols="15"></textarea>
+                <button id="find" class="submit">Sök</button>
+                <button id="all" class="submit">Visa allt</button>
             </div>
 
 
             <div id="deleteBar" class="scale-up-top">
                 <h2>Rensa</h2>
-                <input id="display2" type="textarea" placeholder="Titel">
-                <button id="delete2">Rensa</button>
+                <input id="deleteInput" type="text" placeholder="Titel">
+                <button id="deleteProg" class="submit">Rensa program</button>
+                <button id="deleteAll" class="submit">Rensa databas</button>
             </div>
+            
+        
 
 
         </main>
         <footer>
-            <p>&copy; 2023 <NAME></p>
+            <p>Allrights Reserved &copy; 2023 STK  <NAME></p>
         </footer>
         <script src="scripts/script.js"></script>
     </body>

@@ -22,9 +22,8 @@ function showForm() {
     
 }
 
-
-
 register.addEventListener('click', showForm);
+
 
 //Search bar show/hide settings
 function showSearchBar() {
@@ -96,29 +95,29 @@ function findData() {
         alert('Databas är tom!');
     }
     else {
-        let key = document.getElementById('key').value;
+        let kay = document.getElementById('key').value;
         
         let programsArray = JSON.parse(localStorage.getItem('programsArray'));
+
+        let programFound = false;
         
-        programsArray.forEach(iteration1);
-        
-        function iteration1(obj) {
-            if (obj.title === key){
-                document.getElementById('display').value = 'Title: '+ obj.title + ', ' + 
-                'Genre: '+ obj.genre + ', ' + 
-                'Age: ' + obj.age; 
+        for (const program of programsArray) {
+
+            if (program.title === kay){
+                document.getElementById('searchDisplay').value = 'Title: '+ program.title + ', ' + 
+                'Genre: '+ program.genre + ', ' + 
+                'Age: ' + program.age; 
+
+                programFound = true;
+                break;
             }
-            else {
-                document.getElementById('display').value = 'Program not found!';
-            }
+        }
+        if (!programFound) {
+            document.getElementById('searchDisplay').value = 'Program not found!';
         }
     }
 }
 
-//Sökning button
-let sökning = document.getElementById('find');
-
-sökning.addEventListener('click', findData);
 
 
 function showAllData() {
@@ -129,26 +128,23 @@ function showAllData() {
     else {
         
         let programsArray = JSON.parse(localStorage.getItem('programsArray'));
+        
+        let display = '';
+        
+        programsArray.forEach(iteration2);
+        
+        function iteration2(prog) {
             
-        for (let i = 0; i < programsArray.length; i++) { 
-
-            programsArray.forEach(iteration2);
-        
-            function iteration2(prog) {
-                
-                document.getElementById('display').value = 'Title: '+ prog.title + ','+ 
-                'Genre: '+ prog.genre + ','+ 
-                'Age:' + prog.age;
-            }
+            display += 'Title: ' + prog.title + '\n' + 
+            'Genre: ' + prog.genre + '\n' + 
+            'Age: ' + prog.age + '\n\n';
+            
         }
-          
         
+        document.getElementById('searchDisplay').value = display;
     }
 }
 
-let all = document.getElementById('all');
-
-all.addEventListener('click', showAllData);
 
 
 
@@ -156,41 +152,63 @@ all.addEventListener('click', showAllData);
 
 
 // Rensa data 
-function clearStorage() { 
-
-    let data = document.getElementById('display2').value;
+function clearItem() { 
     
-    let existingData = localStorage.getItem('programsArray');  
+    let key = document.getElementById('deleteInput').value;
     
-    let parsedData = JSON.parse(existingData);
+    let parsedArray = JSON.parse(localStorage.getItem('programsArray'));
     
-    console.log(parsedData);
-
-    for (let i = 0; i < parsedData.length; i++) { 
+    console.log(parsedArray);
     
-        if (parsedData[i].title === data) {
+    for (let i = 0; i < parsedArray.length; i++) { 
+        
+        if (parsedArray[i].title === key) {
             
+            parsedArray.splice(i, 1);
             
-            parsedData.splice(i, 1);
-
-            let bleh = JSON.stringify(parsedData);
+            let stringifiedArray = JSON.stringify(parsedArray);
             
-            localStorage.setItem('programsArray', bleh);
+            localStorage.setItem('programsArray', stringifiedArray);
             
         }
         
     }
-    alert('Item is cleared'); 
+    alert('Programet har tagits bort'); 
+}
+
+//Tar bort allt från localStorage   
+function clearAll() { 
+    if (localStorage.getItem('programsArray') === null){
+        alert('Det finns ingeting att rensa');
+    }
+    else {
+        localStorage.clear();
+        alert('Databas har rensar!');
+    }
 }
 
 //Buttons event listeners
-//Spara button
+//Spara button ----------------------------
 let spara = document.getElementById('spara');
 
 spara.addEventListener('click', saveData);
 
+//Visa allt från localStorage----------
+let all = document.getElementById('all');
 
-//Rensa button
-let deleteButton = document.getElementById('delete2');
+all.addEventListener('click', showAllData);
 
-deleteButton.addEventListener('click', clearStorage);
+//Sökning button----------------------------
+let sökning = document.getElementById('find');
+
+sökning.addEventListener('click', findData);
+
+//Rensa button--------------------------------------
+let deleteButton = document.getElementById('deleteProg');
+
+deleteButton.addEventListener('click', clearItem);
+
+//Rensa all button---------------------------------
+let rensaAllt = document.getElementById('deleteAll');
+
+rensaAllt.addEventListener('click', clearAll);
