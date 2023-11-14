@@ -1,21 +1,24 @@
 @mixin buttons{width: 150px;
     height: 60px;
+    color: #00025E;
     border-radius: 50px;
-    background-image: linear-gradient(135deg, #feb692 0%, #ea5455 100%);
-    box-shadow: 0 20px 30px -6px rgba(238, 103, 97, 0.5);
+    background-image: linear-gradient(135deg, #FFE18F 0%, #8FFFF5 100%);
+    box-shadow: 0 20px 30px -6px rgba(236, 238, 97, 0.5);
     font-size: 20px;
     font-weight: bolder;
     border: none !important;
 }
 
-@mixin submitButtons{width: auto;
-    height: 30px;
+@mixin submitButtons{width: max-content;
+    height: 50px;
+    color: #00025E;
+    text-align: center;
     border-radius: 50px;
-    background-image: linear-gradient(135deg, #feb692 0%, #ea5455 100%);
-    box-shadow: 0 20px 30px -6px rgba(238, 103, 97, 0.5);
-    font-size: 20px;
+    background-image: linear-gradient(135deg, #FFE18F 0%, #8FFFF5 100%);
+    box-shadow: 0 20px 30px -6px rgba(236, 238, 97, 0.5);
     font-weight: bolder;
-    border: none !important;
+    border: none ;
+    font-size: 20px !important;
 }
 
 @mixin form{background-color: rgba(0, 0, 0, 0.507);
@@ -23,6 +26,8 @@
     width: 500px;
     display: none; 
     margin: 80px;
+    flex-direction: column;
+    align-items: center;
 }
 
 @keyframes scale-up-top{
@@ -32,15 +37,12 @@
     transform-origin:center top}
 }
 
-
 @mixin fontStyle{font-weight: bolder;
     color: bisque;
     text-shadow: 1px 1px 2px rgb(255, 0, 0), 
     0 0 1em rgb(63, 63, 255), 0 0 0.2em blue;
     width: 100%;
 }
-
-
 
 body { background-image: url("/media/news_backdrop.jpg");
 background-repeat: no-repeat;
@@ -52,17 +54,18 @@ justify-content: center;
 flex-direction: column;
 
 
-    header {@include fontStyle; 
-    font-size: xxx-large;
-    text-align: center;
+    header { @include fontStyle; 
+        
+        font-size: 60px !important; 
+        text-align: center;
     }
 
-    h1 {@include fontStyle; 
+    h1 { @include fontStyle; 
     font-size: xx-large;
-    text-align: center;
+    text-align: center !important;
     }
 
-    h2 {@include fontStyle;
+    h2 { @include fontStyle;
         font-size: x-large;
     }
 
@@ -72,9 +75,17 @@ flex-direction: column;
         justify-content: space-around;
         align-items: center;
         width: 100%;
-        height: auto;
+        
+        .submit {@include submitButtons;
+            
+            &:hover {
+                transform: translateY(3px);
+                box-shadow: none;
 
-        .submit {@include submitButtons;}
+            }
+            &:active {background-color: blue;}
+
+        }
 
         #buttons {
             #register, #search, #delete {@include buttons;
@@ -84,7 +95,7 @@ flex-direction: column;
                     box-shadow: none;
 
                 }
-                &:active {opacity:0.5;}
+                &:active {background-color: blue;}
             }
         }
         
@@ -92,14 +103,33 @@ flex-direction: column;
 
         #regform, #searchbar, #deleteBar {@include form;
 
-            form {display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                    
-                    input {width: 40%;
-                    border-radius: 15px;}
+            option {background-color: #57928d;}
+
+            input {width: 60%;
+            border-radius: 15px;}
+                
+            #searchDisplay {font-size: x-large;
+                font-style: oblique;
+            display: none;
+
+            }
+            #deleteAll {background-color: red;
+                color:azure;
+                border-radius: 50px;
+                height: 50px;
+                color: whitesmoke;
+                font-size: x-large;
+                font-weight: 600;
+                
+                &:hover {
+                    transform: translateY(3px);
+                    box-shadow: none;
+
                 }
+                &:active {background-color: rgb(255, 238, 0);
+                color: black;}
+            
+            }
         }
 
         #age {width: 100px;}

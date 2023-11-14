@@ -13,7 +13,7 @@ let deletion = document.getElementById('delete');
 //Form show/hide settings
 function showForm() {
     if ( form.style.display === 'none') {
-    form.style.display = 'block';
+    form.style.display = 'flex';
     searchBar.style.display = 'none';
     deleteBar.style.display = 'none';
     }
@@ -28,7 +28,7 @@ register.addEventListener('click', showForm);
 //Search bar show/hide settings
 function showSearchBar() {
     if (searchBar.style.display === 'none') {
-    searchBar.style.display = 'block';
+    searchBar.style.display = 'flex';
     form.style.display = 'none';
     deleteBar.style.display = 'none';
     }
@@ -43,7 +43,7 @@ search.addEventListener('click', showSearchBar);
 
 function showDeleteBar() {
     if (deleteBar.style.display === 'none') {
-    deleteBar.style.display = 'block';
+    deleteBar.style.display = 'flex';
     searchBar.style.display = 'none';
     form.style.display = 'none';
     }
@@ -95,7 +95,7 @@ function findData() {
         alert('Databas är tom!');
     }
     else {
-        let kay = document.getElementById('key').value;
+        let key = document.getElementById('key').value;
         
         let programsArray = JSON.parse(localStorage.getItem('programsArray'));
 
@@ -103,10 +103,16 @@ function findData() {
         
         for (const program of programsArray) {
 
-            if (program.title === kay){
-                document.getElementById('searchDisplay').value = 'Title: '+ program.title + ', ' + 
-                'Genre: '+ program.genre + ', ' + 
-                'Age: ' + program.age; 
+            if (program.title === key ||
+                program.genre === key ||
+                program.age === key) {
+                
+                document.getElementById('searchDisplay').value = 'Titel: '+ program.title + '\n' + 
+                'Tema: '+ program.genre + '\n' + 
+                'Åldersgräns: ' + program.age; 
+
+                let searchDisplay = document.getElementById('searchDisplay');
+                searchDisplay.style.display = 'block';
 
                 programFound = true;
                 break;
@@ -115,10 +121,9 @@ function findData() {
         if (!programFound) {
             document.getElementById('searchDisplay').value = 'Program not found!';
         }
+        
     }
 }
-
-
 
 function showAllData() {
     if (localStorage.getItem('programsArray') === null ||
@@ -135,21 +140,16 @@ function showAllData() {
         
         function iteration2(prog) {
             
-            display += 'Title: ' + prog.title + '\n' + 
-            'Genre: ' + prog.genre + '\n' + 
-            'Age: ' + prog.age + '\n\n';
+            display += 'Titel: ' + prog.title + '\n' + 
+            'Tema: ' + prog.genre + '\n' + 
+            'Åldersgräns: ' + prog.age + '\n\n';
             
         }
-        
+        let searchDisplay = document.getElementById('searchDisplay');
+        searchDisplay.style.display = 'block';
         document.getElementById('searchDisplay').value = display;
     }
 }
-
-
-
-
-
-
 
 // Rensa data 
 function clearItem() { 
@@ -187,7 +187,7 @@ function clearAll() {
     }
 }
 
-//Buttons event listeners
+// -------------- Buttons event listeners -------------- \\
 //Spara button ----------------------------
 let spara = document.getElementById('spara');
 
@@ -212,3 +212,8 @@ deleteButton.addEventListener('click', clearItem);
 let rensaAllt = document.getElementById('deleteAll');
 
 rensaAllt.addEventListener('click', clearAll);
+
+
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement({pageLanguage: 'se'}, 'google_translate_element');
+  }

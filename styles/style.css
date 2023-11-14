@@ -23,7 +23,7 @@ body header {
   color: bisque;
   text-shadow: 1px 1px 2px rgb(255, 0, 0), 0 0 1em rgb(63, 63, 255), 0 0 0.2em blue;
   width: 100%;
-  font-size: xxx-large;
+  font-size: 60px !important;
   text-align: center;
 }
 body h1 {
@@ -32,7 +32,7 @@ body h1 {
   text-shadow: 1px 1px 2px rgb(255, 0, 0), 0 0 1em rgb(63, 63, 255), 0 0 0.2em blue;
   width: 100%;
   font-size: xx-large;
-  text-align: center;
+  text-align: center !important;
 }
 body h2 {
   font-weight: bolder;
@@ -48,24 +48,34 @@ body main {
   justify-content: space-around;
   align-items: center;
   width: 100%;
-  height: auto;
 }
 body main .submit {
-  width: auto;
-  height: 30px;
+  width: -moz-max-content;
+  width: max-content;
+  height: 50px;
+  color: #00025E;
+  text-align: center;
   border-radius: 50px;
-  background-image: linear-gradient(135deg, #feb692 0%, #ea5455 100%);
-  box-shadow: 0 20px 30px -6px rgba(238, 103, 97, 0.5);
-  font-size: 20px;
+  background-image: linear-gradient(135deg, #FFE18F 0%, #8FFFF5 100%);
+  box-shadow: 0 20px 30px -6px rgba(236, 238, 97, 0.5);
   font-weight: bolder;
-  border: none !important;
+  border: none;
+  font-size: 20px !important;
+}
+body main .submit:hover {
+  transform: translateY(3px);
+  box-shadow: none;
+}
+body main .submit:active {
+  background-color: blue;
 }
 body main #buttons #register, body main #buttons #search, body main #buttons #delete {
   width: 150px;
   height: 60px;
+  color: #00025E;
   border-radius: 50px;
-  background-image: linear-gradient(135deg, #feb692 0%, #ea5455 100%);
-  box-shadow: 0 20px 30px -6px rgba(238, 103, 97, 0.5);
+  background-image: linear-gradient(135deg, #FFE18F 0%, #8FFFF5 100%);
+  box-shadow: 0 20px 30px -6px rgba(236, 238, 97, 0.5);
   font-size: 20px;
   font-weight: bolder;
   border: none !important;
@@ -75,7 +85,7 @@ body main #buttons #register:hover, body main #buttons #search:hover, body main 
   box-shadow: none;
 }
 body main #buttons #register:active, body main #buttons #search:active, body main #buttons #delete:active {
-  opacity: 0.5;
+  background-color: blue;
 }
 body main .scale-up-top {
   animation: scale-up-top 0.8s;
@@ -86,16 +96,37 @@ body main #regform, body main #searchbar, body main #deleteBar {
   width: 500px;
   display: none;
   margin: 80px;
-}
-body main #regform form, body main #searchbar form, body main #deleteBar form {
-  display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
-body main #regform form input, body main #searchbar form input, body main #deleteBar form input {
-  width: 40%;
+body main #regform option, body main #searchbar option, body main #deleteBar option {
+  background-color: #57928d;
+}
+body main #regform input, body main #searchbar input, body main #deleteBar input {
+  width: 60%;
   border-radius: 15px;
+}
+body main #regform #searchDisplay, body main #searchbar #searchDisplay, body main #deleteBar #searchDisplay {
+  font-size: x-large;
+  font-style: oblique;
+  display: none;
+}
+body main #regform #deleteAll, body main #searchbar #deleteAll, body main #deleteBar #deleteAll {
+  background-color: red;
+  color: azure;
+  border-radius: 50px;
+  height: 50px;
+  color: whitesmoke;
+  font-size: x-large;
+  font-weight: 600;
+}
+body main #regform #deleteAll:hover, body main #searchbar #deleteAll:hover, body main #deleteBar #deleteAll:hover {
+  transform: translateY(3px);
+  box-shadow: none;
+}
+body main #regform #deleteAll:active, body main #searchbar #deleteAll:active, body main #deleteBar #deleteAll:active {
+  background-color: rgb(255, 238, 0);
+  color: black;
 }
 body main #age {
   width: 100px;

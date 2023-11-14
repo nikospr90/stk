@@ -1,53 +1,63 @@
 <!DOCTYPE html>
-<html>
+<html lang="se">
     <head>
         <link rel="stylesheet" href="styles/style.css">
         <meta charset="utf-8">
         <title>STK</title>
         <meta name="viewport" content="width=device-width, intitial-scale = 1.0">
     </head>
-    <body>
-        <header><p>Sveriges Televisionskanaler</p></header>
+    <body id="yo">
+        <header>
+            <p>Sveriges Televisionskanaler</p> 
+            
+        </header>
         <main>
+            <!-- <div id="google_translate_element"></div> -->
 
 
             <h1>Välkommen</h1>
-            <div id="buttons">
-                <button id="register" title="Registrera ett Program efter titel, beskrivning och åldernsgräns">Registrera</button>
-                <button id="search" title="Söka ett Program efter titel, beskrivning och åldernsgräns">Sök</button>
-                <button id="delete" title="Ta bort ett Program efter titel, beskrivning och åldernsgräns">Rensa</button>
-            </div>
+            <nav id="buttons">
+                <button id="register" class="mainButtons" title="Registrera ett program efter titel, tema och åldernsgräns">Registrera</button>
+                <button id="search" class="mainButtons" title="Söka ett program efter titel, tema och åldernsgräns">Sök</button>
+                <button id="delete" class="mainButtons" title="Ta bort ett program efter titel, tema och åldernsgräns">Rensa</button>
+            </nav>
 
 
             <div id="regform" class="scale-up-top">
-                <form action="">
-                    <h2>Titel</h2>
-                    <input id="title" type="text" >
-                    <h2>Beskrivning</h2>
-                    <select name="tema" id="genre" class="submit" title="Här väljer du vilken tema har programet">
-                        <option value="">--Välj--</option>
-                        <option value="komedi">Komedi</option>
-                        <option value="skräck">Skräck</option>
-                        <option value="action">Action</option>
-                        <option value="drama">Drama</option>
-                        <option value="romantik">Romantik</option>
-                        <option value="thriller">Thriller</option>
-                        <option value="dokumentar">Dokumentar</option>
-                    </select>
-                    <h2>Åldernsgräns</h2>
-                    <input id="age" class="submit" type="number" placeholder="Åldernsgräns"> 
-                    <input id="spara" class="submit" type="submit" value="Spara">
-                    <br>
-                </form>
+                <h2>Titel</h2>
+                <input id="title" type="text" placeholder="Title">
+                <h2>Tema</h2>
+                <select name="tema" id="genre" class="submit" title="Här väljer du vilken tema har programet">
+                    <option value="">Välj</option>
+                    <option value="komedi">Komedi</option>
+                    <option value="skräck">Skräck</option>
+                    <option value="action">Action</option>
+                    <option value="drama">Drama</option>
+                    <option value="romantik">Romantik</option>
+                    <option value="thriller">Thriller</option>
+                    <option value="dokumentar">Dokumentar</option>
+                </select>
+
+                
+                <h2>Åldersgräns</h2>
+                <select name="age" id="age" class="submit">
+                    <option value="">Välj</option>
+                    <option value="7+">7+</option>
+                    <option value="11+">11+</option>
+                    <option value="15+">15+</option>
+                    <option value="18+">18+</option>
+                </select>
+                <button id="spara" class="submit" 
+                title="Tryck för att spara programet">Spara</button>
             </div>
 
 
             <div id="searchbar" class="scale-up-top">
                 <h2>Sök</h2>
                 <input id="key" type="text" placeholder="Titel">
-                <textarea id="searchDisplay" type="textarea" readonly cols="15"></textarea>
                 <button id="find" class="submit">Sök</button>
                 <button id="all" class="submit">Visa allt</button>
+                <textarea id="searchDisplay" type="text" readonly>sdfg</textarea>
             </div>
 
 
@@ -55,7 +65,7 @@
                 <h2>Rensa</h2>
                 <input id="deleteInput" type="text" placeholder="Titel">
                 <button id="deleteProg" class="submit">Rensa program</button>
-                <button id="deleteAll" class="submit">Rensa databas</button>
+                <button id="deleteAll" >Rensa databas</button>
             </div>
             
         
@@ -65,6 +75,9 @@
         <footer>
             <p>Allrights Reserved &copy; 2023 STK  <NAME></p>
         </footer>
+        <script type="text/javascript" 
+        src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+        </script> 
         <script src="scripts/script.js"></script>
     </body>
 </html>
