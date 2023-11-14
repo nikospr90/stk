@@ -50,7 +50,7 @@ background-size: cover;
 margin: 0px;
 padding: 1%;
 display: flex;
-justify-content: center;
+
 flex-direction: column;
 
 
@@ -58,32 +58,34 @@ flex-direction: column;
         
         font-size: 60px !important; 
         text-align: center;
+
     }
 
     h1 { @include fontStyle; 
     font-size: xx-large;
     text-align: center !important;
+
     }
 
     h2 { @include fontStyle;
         font-size: x-large;
     }
 
-    main {display: flex;
+    main { display: flex;
         text-align: center;
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
         width: 100%;
         
-        .submit {@include submitButtons;
+        .submit { @include submitButtons;
             
             &:hover {
                 transform: translateY(3px);
                 box-shadow: none;
 
             }
-            &:active {background-color: blue;}
+            &:active {opacity: 0.5;}
 
         }
 
@@ -95,7 +97,7 @@ flex-direction: column;
                     box-shadow: none;
 
                 }
-                &:active {background-color: blue;}
+                &:active {opacity: 0.5;}
             }
         }
         

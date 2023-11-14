@@ -15,7 +15,6 @@ body {
   margin: 0px;
   padding: 1%;
   display: flex;
-  justify-content: center;
   flex-direction: column;
 }
 body header {
@@ -67,7 +66,7 @@ body main .submit:hover {
   box-shadow: none;
 }
 body main .submit:active {
-  background-color: blue;
+  opacity: 0.5;
 }
 body main #buttons #register, body main #buttons #search, body main #buttons #delete {
   width: 150px;
@@ -85,7 +84,7 @@ body main #buttons #register:hover, body main #buttons #search:hover, body main 
   box-shadow: none;
 }
 body main #buttons #register:active, body main #buttons #search:active, body main #buttons #delete:active {
-  background-color: blue;
+  opacity: 0.5;
 }
 body main .scale-up-top {
   animation: scale-up-top 0.8s;
