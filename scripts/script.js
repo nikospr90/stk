@@ -159,6 +159,7 @@ function showAllData() {
     if (localStorage.getItem('programsArray') === null ||
     localStorage.getItem('programsArray') === undefined) {
         alert('Databas är tom!');
+        console.log('Databas är tom!');
     }
     else {
         
@@ -167,8 +168,10 @@ function showAllData() {
         let programsArray = JSON.parse(localStorage.getItem('programsArray'));
         
         let display = '';
+
         //stoppar in arrayn i foreach loopen som aktiverar funktionen loopArray
         programsArray.forEach(loopArray);
+
         //loopar genom arrayn, stoppar in alla data in display 
         function loopArray(prog) {
             
@@ -178,18 +181,20 @@ function showAllData() {
             
         }
         let searchDisplay = document.getElementById('searchDisplay');
+        
         //avslojas 'searchDisplay' och knappen 'clear' som 'block'
         searchDisplay.style.display = 'block';
         clearButton.style.display = 'block';
+
         //stoppar display till searchDisplay som visar alla data
         document.getElementById('searchDisplay').value = display;
     }
 }
+
 //enkel function som ta bort texten från textarea
 function clearTextArea() {
     document.getElementById('searchDisplay').value = '';
 }
-
 
 // Rensa data 
 function clearItem() { 

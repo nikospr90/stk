@@ -131,6 +131,9 @@ body main #regform #deleteAll:active, body main #searchbar #deleteAll:active, bo
   background-color: rgb(255, 0, 0);
   color: black;
 }
+body main #clear {
+  display: none;
+}
 body main #age {
   width: 100px;
 }
