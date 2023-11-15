@@ -65,8 +65,8 @@ function saveData() {
         
         // Objektet program har properties som läses från formulären
         // .value läser från input texten som skrivs
-        title : document.getElementById('title').value, 
-        genre : document.getElementById('genre').value,
+        title : document.getElementById('title').value.toLowerCase(),  
+        genre : document.getElementById('genre').value.toLowerCase(),
         age : document.getElementById('age').value,
     };
 
@@ -83,9 +83,12 @@ function saveData() {
     //och sparas till localstorage
     localStorage.setItem('programsArray', JSON.stringify(objArray));
     
+    title.value = '';
+    genre.value = '';
+    age.value = '';
+
     alert('Data saved to local storage!'); 
 
-    console.log(localStorage.getItem('programsArray'));
 }
 
 //function som visar datan efter sökning
@@ -95,33 +98,39 @@ function findData() {
         alert('Databas är tom!');
     }
     else {
-        let key = document.getElementById('key').value;
+
+        let key = document.getElementById('key').value.toLowerCase();
+        let searchDisplay = document.getElementById('searchDisplay');
         
-        let programsArray = JSON.parse(localStorage.getItem('programsArray'));
+        if (key === '') {
+            alert('Skriv något först!');
+        }
+        else {
+            let programsArray = JSON.parse(localStorage.getItem('programsArray'));
 
-        let programFound = false;
-        
-        for (const program of programsArray) {
+            let programFound = false;
+            
+            for (const program of programsArray) {
 
-            if (program.title === key ||
-                program.genre === key ||
-                program.age === key) {
-                
-                document.getElementById('searchDisplay').value = 'Titel: '+ program.title + '\n' + 
-                'Tema: '+ program.genre + '\n' + 
-                'Åldersgräns: ' + program.age; 
+                if (program.title === key ||
+                    program.genre === key ||
+                    program.age === key) {
+                    
+                    document.getElementById('searchDisplay').value = 'Titel: '+ program.title + '\n' + 
+                    'Tema: '+ program.genre + '\n' + 
+                    'Åldersgräns: ' + program.age; 
 
-                let searchDisplay = document.getElementById('searchDisplay');
+                    searchDisplay.style.display = 'block';
+
+                    programFound = true;
+                    break;
+                }
+            }
+            if (!programFound) {
+                document.getElementById('searchDisplay').value = 'Program not found!';
                 searchDisplay.style.display = 'block';
-
-                programFound = true;
-                break;
             }
         }
-        if (!programFound) {
-            document.getElementById('searchDisplay').value = 'Program not found!';
-        }
-        
     }
 }
 
@@ -212,7 +221,6 @@ deleteButton.addEventListener('click', clearItem);
 let rensaAllt = document.getElementById('deleteAll');
 
 rensaAllt.addEventListener('click', clearAll);
-
 
 function googleTranslateElementInit() {
     new google.translate.TranslateElement({pageLanguage: 'se'}, 'google_translate_element');

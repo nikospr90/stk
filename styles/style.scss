@@ -47,6 +47,7 @@
 body { background-image: url("/media/news_backdrop.jpg");
 background-repeat: no-repeat;
 background-size: cover;
+background-attachment: fixed;
 margin: 0px;
 padding: 1%;
 display: flex;
@@ -111,7 +112,8 @@ flex-direction: column;
             border-radius: 15px;}
                 
             #searchDisplay {font-size: x-large;
-                font-style: oblique;
+            font-style: oblique;
+            width: 300px;
             display: none;
 
             }
