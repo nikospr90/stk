@@ -1,6 +1,7 @@
 // -------------- functionallity -------------- \\
 
 // show/hide settings
+// läsas knappar och div/rutorna
 let form = document.getElementById('regform');
 let register = document.getElementById('register');
 
@@ -10,7 +11,10 @@ let search = document.getElementById('search');
 let deleteBar = document.getElementById('deleteBar');
 let deletion = document.getElementById('delete');
 
-//Form show/hide settings
+
+//om en ruta är aktiv de andra stänger
+
+//Registrera ruta show/hide settings
 function showForm() {
     if ( form.style.display === 'none') {
     form.style.display = 'flex';
@@ -18,14 +22,15 @@ function showForm() {
     deleteBar.style.display = 'none';
     }
     else {
-    form.style.display = 'none';}
+    form.style.display = 'none';
+    }
     
 }
 
 register.addEventListener('click', showForm);
 
 
-//Search bar show/hide settings
+//Search ruta show/hide settings
 function showSearchBar() {
     if (searchBar.style.display === 'none') {
     searchBar.style.display = 'flex';
@@ -33,13 +38,14 @@ function showSearchBar() {
     deleteBar.style.display = 'none';
     }
     else {
-    searchBar.style.display = 'none';}
+    searchBar.style.display = 'none';
+    }
 }
 
 search.addEventListener('click', showSearchBar);
 
 
-//Delete option show/hide settings
+//Delete ruta show/hide settings
 
 function showDeleteBar() {
     if (deleteBar.style.display === 'none') {
@@ -48,7 +54,8 @@ function showDeleteBar() {
     form.style.display = 'none';
     }
     else {
-    deleteBar.style.display = 'none';}
+    deleteBar.style.display = 'none';
+    }
 }
 
 deletion.addEventListener('click', showDeleteBar);
@@ -93,39 +100,51 @@ function saveData() {
 
 //function som visar datan efter sökning
 function findData() {
+    //Kollar om det finns objekt 'ProgramsArray' i localstorage
     if (localStorage.getItem('programsArray') === null ||
     localStorage.getItem('programsArray') === undefined) {
         alert('Databas är tom!');
     }
     else {
-
+        //om det finns objektet hämtar 'key' från html samt 'searchDisplay'
         let key = document.getElementById('key').value.toLowerCase();
         let searchDisplay = document.getElementById('searchDisplay');
-        
+        //om 'key' är tom, så skickas alert
         if (key === '') {
             alert('Skriv något först!');
         }
+        //annars omvandlas objektet 
         else {
             let programsArray = JSON.parse(localStorage.getItem('programsArray'));
 
             let programFound = false;
             
+            let display = '';
+            //om 'key' matchar någon av de objektets properties i programsArray
+            //stoppar in allt som hittas en matchning till temp
+            //avslöjas searchDisplay som 'block, stoppas in temp till searchDisplay
+            //och rensas 'key' fält, programfound blir true 
             for (const program of programsArray) {
 
                 if (program.title === key ||
                     program.genre === key ||
                     program.age === key) {
                     
-                    document.getElementById('searchDisplay').value = 'Titel: '+ program.title + '\n' + 
+                    display += 'Titel: '+ program.title + '\n' + 
                     'Tema: '+ program.genre + '\n' + 
-                    'Åldersgräns: ' + program.age; 
+                    'Åldersgräns: ' + program.age + '\n\n'; 
 
                     searchDisplay.style.display = 'block';
+                    
+                    document.getElementById('searchDisplay').value = display;
 
+                    document.getElementById('key').value = '';
+                        
                     programFound = true;
-                    break;
                 }
             }
+            //om programFound är fortfarande false då betyder att 
+            //det hittades inget program som matchar 'key'
             if (!programFound) {
                 document.getElementById('searchDisplay').value = 'Program not found!';
                 searchDisplay.style.display = 'block';
@@ -134,20 +153,24 @@ function findData() {
     }
 }
 
+//function som visar all data
 function showAllData() {
+
     if (localStorage.getItem('programsArray') === null ||
     localStorage.getItem('programsArray') === undefined) {
         alert('Databas är tom!');
     }
     else {
         
+        let clearButton = document.getElementById('clear');
+        
         let programsArray = JSON.parse(localStorage.getItem('programsArray'));
         
         let display = '';
-        
-        programsArray.forEach(iteration2);
-        
-        function iteration2(prog) {
+        //stoppar in arrayn i foreach loopen som aktiverar funktionen loopArray
+        programsArray.forEach(loopArray);
+        //loopar genom arrayn, stoppar in alla data in display 
+        function loopArray(prog) {
             
             display += 'Titel: ' + prog.title + '\n' + 
             'Tema: ' + prog.genre + '\n' + 
@@ -155,34 +178,54 @@ function showAllData() {
             
         }
         let searchDisplay = document.getElementById('searchDisplay');
+        //avslojas 'searchDisplay' och knappen 'clear' som 'block'
         searchDisplay.style.display = 'block';
+        clearButton.style.display = 'block';
+        //stoppar display till searchDisplay som visar alla data
         document.getElementById('searchDisplay').value = display;
     }
 }
+//enkel function som ta bort texten från textarea
+function clearTextArea() {
+    document.getElementById('searchDisplay').value = '';
+}
+
 
 // Rensa data 
 function clearItem() { 
     
     let key = document.getElementById('deleteInput').value;
     
-    let parsedArray = JSON.parse(localStorage.getItem('programsArray'));
-    
-    console.log(parsedArray);
-    
-    for (let i = 0; i < parsedArray.length; i++) { 
-        
-        if (parsedArray[i].title === key) {
-            
-            parsedArray.splice(i, 1);
-            
-            let stringifiedArray = JSON.stringify(parsedArray);
-            
-            localStorage.setItem('programsArray', stringifiedArray);
-            
-        }
-        
+    if (key === '') {
+        alert('Skriv något först!');
     }
-    alert('Programet har tagits bort'); 
+    else {
+        //hämtas arrayn från localstorage, omvandlas till objektet i parsedArray 
+        let parsedArray = JSON.parse(localStorage.getItem('programsArray'));
+        
+        for (let i = 0; i < parsedArray.length; i++) { 
+            //om 'key' matchar objektets 'title' i arrayn 'parsedArray'
+            if (parsedArray[i].title === key) {
+
+                //tas bort objektet som ligger i 'i' in arrayn 'parsedArray' för lengden 1
+                parsedArray.splice(i, 1);
+                
+                //görs förändrat arrayn till string och sparas till localstorage igen
+                localStorage.setItem('programsArray', JSON.stringify(parsedArray));
+                
+                alert('Programet har tagits bort'); 
+                
+                break;
+            }
+            else {
+                
+                alert('Programet finns inte!'); 
+                
+                break;
+                
+            }
+        }
+    }
 }
 
 //Tar bort allt från localStorage   
@@ -196,7 +239,13 @@ function clearAll() {
     }
 }
 
-// -------------- Buttons event listeners -------------- \\
+// -------------- Buttons med eventListeners -------------- \\
+
+//Clear button för textarea ---------------
+let clear = document.getElementById('clear');
+
+clear.addEventListener('click', clearTextArea);
+
 //Spara button ----------------------------
 let spara = document.getElementById('spara');
 
@@ -222,6 +271,8 @@ let rensaAllt = document.getElementById('deleteAll');
 
 rensaAllt.addEventListener('click', clearAll);
 
+// -------------- Google Translate -------------- \\
 function googleTranslateElementInit() {
     new google.translate.TranslateElement({pageLanguage: 'se'}, 'google_translate_element');
-  }
+}
+

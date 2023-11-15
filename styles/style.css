@@ -120,13 +120,15 @@ body main #regform #deleteAll, body main #searchbar #deleteAll, body main #delet
   color: whitesmoke;
   font-size: x-large;
   font-weight: 600;
+  outline: none;
+  border: none;
 }
 body main #regform #deleteAll:hover, body main #searchbar #deleteAll:hover, body main #deleteBar #deleteAll:hover {
   transform: translateY(3px);
-  box-shadow: none;
+  box-shadow: 0px 0px 30px 100px rgb(255, 0, 0);
 }
 body main #regform #deleteAll:active, body main #searchbar #deleteAll:active, body main #deleteBar #deleteAll:active {
-  background-color: rgb(255, 238, 0);
+  background-color: rgb(255, 0, 0);
   color: black;
 }
 body main #age {

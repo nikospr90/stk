@@ -1,20 +1,21 @@
 <!DOCTYPE html>
-<html lang="se">
+<html lang="sv">
     <head>
-        <link rel="stylesheet" href="styles/style.css">
-        <meta charset="utf-8">
         <title>STK</title>
+        <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, intitial-scale = 1.0">
+        <link rel="stylesheet" href="styles/style.css">
     </head>
-    <body id="yo">
+    <body>
         <header>
             <p>Sveriges Televisionskanaler</p> 
-            
         </header>
         <main>
+
+            <!-- Google translate -->
             <div id="google_translate_element"></div>
 
-
+            <!-- Main knappar  -->
             <h1>Välkommen</h1>
             <nav id="buttons">
                 <button id="register" class="mainButtons" title="Registrera ett program efter titel, tema och åldernsgräns">Registrera</button>
@@ -22,12 +23,18 @@
                 <button id="delete" class="mainButtons" title="Ta bort ett program efter titel, tema och åldernsgräns">Rensa</button>
             </nav>
 
-
+            <!-- Registrera ruta -->
             <div id="regform" class="scale-up-top">
+
+                <!-- Titel input -->
                 <h2>Titel</h2>
-                <input id="title" type="text" placeholder="Title">
+                <input id="title" type="text" placeholder="Title"
+                title="Här skriver du titeln av programet som ska sparas">
+
+                <!-- Tema alternativ -->
                 <h2>Tema</h2>
-                <select name="tema" id="genre" class="submit" title="Här väljer du vilken tema har programet">
+                <select name="tema" id="genre" class="submit" 
+                title="Här väljer du vilken tema har programet">
                     <option value="">Välj</option>
                     <option value="komedi">Komedi</option>
                     <option value="skräck">Skräck</option>
@@ -38,9 +45,10 @@
                     <option value="dokumentar">Dokumentar</option>
                 </select>
 
-                
+                <!-- Ålderns alternativ -->
                 <h2>Åldersgräns</h2>
-                <select name="age" id="age" class="submit">
+                <select name="age" id="age" class="submit"
+                title="Här väljer du vilken åldernsgräns har programet">
                     <option value="">Välj</option>
                     <option value="7+">7+</option>
                     <option value="11+">11+</option>
@@ -51,30 +59,45 @@
                 title="Tryck för att spara programet">Spara</button>
             </div>
 
-
+            <!-- Search ruta -->
             <div id="searchbar" class="scale-up-top">
                 <h2>Sök</h2>
-                <input id="key" type="text" placeholder="Titel">
-                <button id="find" class="submit">Sök</button>
-                <button id="all" class="submit">Visa allt</button>
-                <textarea id="searchDisplay" type="text" readonly rows="30"></textarea>
+
+                <input id="key" type="text" placeholder="Titel eller tema"
+                title="Här skrivs antigen titel eller tema som ska sökas">
+
+                <button id="find" class="submit"
+                title="Tryck för att söka programet">Sök</button>
+
+                <button id="all" class="submit"
+                title="Tryck för att visa alla sparat program">Visa allt</button>
+                
+                <textarea id="searchDisplay" type="text" readonly rows="25"></textarea>
+
+                <button id="clear" class="submit">Clear</button>
             </div>
 
-
+            <!-- Delete ruta -->
             <div id="deleteBar" class="scale-up-top">
                 <h2>Rensa</h2>
-                <input id="deleteInput" type="text" placeholder="Titel" title="Här skrivs titel aav programet som ska raderas">
-                <button id="deleteProg" class="submit">Rensa program</button>
-                <button id="deleteAll" >Rensa databas</button>
-            </div>
-            
-        
 
+                <input id="deleteInput" type="text" placeholder="Titel" 
+                title="Här skrivs titel av programet som ska raderas" > 
+
+                <button id="deleteProg" class="submit"
+                title="Tryck för att radera programet">Rensa program</button>
+
+                <button id="deleteAll" 
+                title="TRyck för att readera hela databas">Rensa databas</button>
+            </div>
 
         </main>
         <footer>
-            <p>Allrights Reserved &copy; 2023 STK  <NAME></p>
+            <!-- Copyright -->
+            <p>Allrights Reserved &copy; 2023 STK  <NAME></p> 
         </footer>
+
+        <!-- Scripter -->
         <script type="text/javascript" 
         src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
         </script> 
